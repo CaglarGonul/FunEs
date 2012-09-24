@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Dbzone" table="dbzone" catalog="game_db">
+        <id name="zoneid" type="java.lang.Integer">
+            <column name="zoneid" />
+            <generator class="identity" />
+        </id>
+        <property name="tblhostingid" type="java.lang.Integer">
+            <column name="tblhostingid" />
+        </property>
+        <property name="zonename" type="string">
+            <column name="zonename" not-null="true" unique="true" />
+        </property>
+        <property name="yaratimzamani" type="timestamp">
+            <column name="yaratimzamani" length="19" not-null="true" />
+        </property>
+        <property name="expirezamani" type="timestamp">
+            <column name="expirezamani" length="19" not-null="true" />
+        </property>
+        <property name="roomcapacity" type="int">
+            <column name="roomcapacity" not-null="true" />
+        </property>
+        <property name="zonefiyat" type="big_decimal">
+            <column name="zonefiyat" precision="8" not-null="true" />
+        </property>
+        <property name="kalanborc" type="big_decimal">
+            <column name="kalanborc" precision="8" not-null="true" />
+        </property>
+        <property name="cpanelusername" type="string">
+            <column name="cpanelusername" />
+        </property>
+        <property name="cpanelpassword" type="string">
+            <column name="cpanelpassword" />
+        </property>
+        <set name="serverlvlipbans" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Serverlvlipban" />
+        </set>
+        <set name="scores" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Score" />
+        </set>
+        <set name="dbrooms" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Dbroom" />
+        </set>
+        <set name="cafegolds" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Cafegold" />
+        </set>
+        <set name="userprivatemsglogs" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Userprivatemsglog" />
+        </set>
+        <set name="roompublicmsglogs" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roompublicmsglog" />
+        </set>
+        <set name="gorevhavuzus" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Gorevhavuzu" />
+        </set>
+        <set name="userlogins" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Userlogin" />
+        </set>
+        <set name="roomlevelipbans" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelipban" />
+        </set>
+        <set name="serverlvlnickbans" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Serverlvlnickban" />
+        </set>
+        <set name="usercnnlogs" inverse="true">
+            <key>
+                <column name="zoneid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Usercnnlog" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Dbroom" table="dbroom" catalog="game_db">
+        <id name="roomid" type="java.lang.Integer">
+            <column name="roomid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="roomnumber" type="int">
+            <column name="roomnumber" not-null="true" />
+        </property>
+        <property name="isactive" type="boolean">
+            <column name="isactive" not-null="true" />
+        </property>
+        <property name="roomname" type="string">
+            <column name="roomname" length="45" not-null="true" />
+        </property>
+        <property name="roomgorunenname" type="string">
+            <column name="roomgorunenname" length="45" not-null="true" />
+        </property>
+        <property name="roomnormalcapacity" type="int">
+            <column name="roomnormalcapacity" not-null="true" />
+        </property>
+        <property name="roomgoldcapacity" type="int">
+            <column name="roomgoldcapacity" not-null="true" />
+        </property>
+        <property name="yaratimzamani" type="timestamp">
+            <column name="yaratimzamani" length="19" not-null="true" />
+        </property>
+        <property name="expirezamani" type="timestamp">
+            <column name="expirezamani" length="19" not-null="true" />
+        </property>
+        <property name="odafiyat" type="big_decimal">
+            <column name="odafiyat" precision="8" not-null="true" />
+        </property>
+        <property name="odakalanborc" type="big_decimal">
+            <column name="odakalanborc" precision="8" not-null="true" />
+        </property>
+        <property name="minimumgirispuan" type="int">
+            <column name="minimumgirispuan" not-null="true" />
+        </property>
+        <property name="minimumkonusmapuan" type="int">
+            <column name="minimumkonusmapuan" not-null="true" />
+        </property>
+        <property name="salontipi" type="string">
+            <column name="salontipi" length="2" not-null="true" />
+        </property>
+        <property name="isokey" type="boolean">
+            <column name="isokey" not-null="true" />
+        </property>
+        <property name="isyuzbir" type="boolean">
+            <column name="isyuzbir" not-null="true" />
+        </property>
+        <property name="salontema" type="string">
+            <column name="salontema" length="6" not-null="true" />
+        </property>
+        <property name="salongsparka" type="string">
+            <column name="salongsparka" not-null="true" />
+        </property>
+        <property name="masareklam" type="string">
+            <column name="masareklam" length="65535" not-null="true" />
+        </property>
+        <property name="masaorturengi" type="string">
+            <column name="masaorturengi" length="6" not-null="true" />
+        </property>
+        <property name="masabutonrengi" type="string">
+            <column name="masabutonrengi" length="6" not-null="true" />
+        </property>
+        <set name="roompublicmsglogs" inverse="true">
+            <key>
+                <column name="roomid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roompublicmsglog" />
+        </set>
+        <set name="roomlevelpermsets" inverse="true">
+            <key>
+                <column name="roomid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelpermset" />
+        </set>
+        <set name="gamelogs" inverse="true">
+            <key>
+                <column name="roomid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Gamelog" />
+        </set>
+        <set name="gorevhavuzus" inverse="true">
+            <key>
+                <column name="roomid" />
+            </key>
+            <one-to-many class="game_db.entity.Gorevhavuzu" />
+        </set>
+        <set name="roomlevelipbans" inverse="true">
+            <key>
+                <column name="roomid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelipban" />
+        </set>
+        <set name="roomlevelbanlogs" inverse="true">
+            <key>
+                <column name="roomid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelbanlog" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Cafegold" table="cafegold" catalog="game_db">
+        <id name="cafegoldid" type="java.lang.Integer">
+            <column name="cafegoldid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="cafeip" type="string">
+            <column name="cafeip" length="15" not-null="true" />
+        </property>
+        <property name="yaratimzamani" type="timestamp">
+            <column name="yaratimzamani" length="19" not-null="true" />
+        </property>
+        <property name="expirezamani" type="timestamp">
+            <column name="expirezamani" length="19" not-null="true" />
+        </property>
+        <property name="fiyat" type="big_decimal">
+            <column name="fiyat" precision="8" not-null="true" />
+        </property>
+        <property name="kalanborc" type="big_decimal">
+            <column name="kalanborc" precision="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Gamelog" table="gamelog" catalog="game_db">
+        <id name="gameid" type="java.lang.Integer">
+            <column name="gameid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbroom" class="game_db.entity.Dbroom" fetch="select">
+            <column name="roomid" not-null="true" />
+        </many-to-one>
+        <property name="biruserid" type="int">
+            <column name="biruserid" not-null="true" />
+        </property>
+        <property name="ikiuserid" type="int">
+            <column name="ikiuserid" not-null="true" />
+        </property>
+        <property name="ucuserid" type="java.lang.Integer">
+            <column name="ucuserid" />
+        </property>
+        <property name="dortuserid" type="java.lang.Integer">
+            <column name="dortuserid" />
+        </property>
+        <property name="besuserid" type="java.lang.Integer">
+            <column name="besuserid" />
+        </property>
+        <property name="altiuserid" type="java.lang.Integer">
+            <column name="altiuserid" />
+        </property>
+        <property name="yediuserid" type="java.lang.Integer">
+            <column name="yediuserid" />
+        </property>
+        <property name="sekizuserid" type="java.lang.Integer">
+            <column name="sekizuserid" />
+        </property>
+        <property name="dokuzuserid" type="java.lang.Integer">
+            <column name="dokuzuserid" />
+        </property>
+        <property name="birdiffscore" type="int">
+            <column name="birdiffscore" not-null="true" />
+        </property>
+        <property name="ikidiffscore" type="int">
+            <column name="ikidiffscore" not-null="true" />
+        </property>
+        <property name="ucdiffscore" type="java.lang.Integer">
+            <column name="ucdiffscore" />
+        </property>
+        <property name="dortdiffscore" type="java.lang.Integer">
+            <column name="dortdiffscore" />
+        </property>
+        <property name="besdiffscore" type="java.lang.Integer">
+            <column name="besdiffscore" />
+        </property>
+        <property name="altidiffscore" type="java.lang.Integer">
+            <column name="altidiffscore" />
+        </property>
+        <property name="yedidiffscore" type="java.lang.Integer">
+            <column name="yedidiffscore" />
+        </property>
+        <property name="sekizdiffscore" type="java.lang.Integer">
+            <column name="sekizdiffscore" />
+        </property>
+        <property name="dokuzdiffscore" type="java.lang.Integer">
+            <column name="dokuzdiffscore" />
+        </property>
+        <property name="gametip" type="string">
+            <column name="gametip" length="45" not-null="true" />
+        </property>
+        <set name="gamepublicmsglogs" inverse="true">
+            <key>
+                <column name="gameid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Gamepublicmsglog" />
+        </set>
+    </class>
+</hibernate-mapping>

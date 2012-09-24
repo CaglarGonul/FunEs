@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Usercnnlog" table="usercnnlog" catalog="game_db">
+        <id name="cnnid" type="java.lang.Integer">
+            <column name="cnnid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userlogin" class="game_db.entity.Userlogin" fetch="select">
+            <column name="userid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="logintime" type="timestamp">
+            <column name="logintime" length="19" not-null="true" />
+        </property>
+        <property name="logouttime" type="timestamp">
+            <column name="logouttime" length="19" />
+        </property>
+        <property name="cnnip" type="string">
+            <column name="cnnip" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

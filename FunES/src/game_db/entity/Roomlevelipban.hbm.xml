@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Roomlevelipban" table="roomlevelipban" catalog="game_db">
+        <id name="roomipbanid" type="java.lang.Integer">
+            <column name="roomipbanid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbroom" class="game_db.entity.Dbroom" fetch="select">
+            <column name="roomid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="bannedip" type="string">
+            <column name="bannedip" length="15" not-null="true" />
+        </property>
+        <property name="banstart" type="timestamp">
+            <column name="banstart" length="19" not-null="true" />
+        </property>
+        <property name="banend" type="timestamp">
+            <column name="banend" length="19" not-null="true" />
+        </property>
+        <property name="banreason" type="string">
+            <column name="banreason" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

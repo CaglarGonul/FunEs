@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="game_db"/>
+  <table-filter match-name="roomlevelbanlog"/>
+  <table-filter match-name="dbzone"/>
+  <table-filter match-name="userbuddydata"/>
+  <table-filter match-name="userprivatemsglog"/>
+  <table-filter match-name="ci_sessions"/>
+  <table-filter match-name="usercnnlog"/>
+  <table-filter match-name="gorevhavuzu"/>
+  <table-filter match-name="roompublicmsglog"/>
+  <table-filter match-name="userlogin"/>
+  <table-filter match-name="gamelog"/>
+  <table-filter match-name="score"/>
+  <table-filter match-name="roomlevelpermset"/>
+  <table-filter match-name="serverlvlipban"/>
+  <table-filter match-name="roomlevelipban"/>
+  <table-filter match-name="gamepublicmsglog"/>
+  <table-filter match-name="cafegold"/>
+  <table-filter match-name="serverlvlnickban"/>
+  <table-filter match-name="dbroom"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Roomlevelpermset" table="roomlevelpermset" catalog="game_db">
+        <id name="roompermid" type="java.lang.Integer">
+            <column name="roompermid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbroom" class="game_db.entity.Dbroom" fetch="select">
+            <column name="roomid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userlogin" class="game_db.entity.Userlogin" fetch="select">
+            <column name="userid" not-null="true" />
+        </many-to-one>
+        <property name="permlevel" type="int">
+            <column name="permlevel" not-null="true" />
+        </property>
+        <property name="atayanuserid" type="int">
+            <column name="atayanuserid" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Gamepublicmsglog" table="gamepublicmsglog" catalog="game_db">
+        <id name="gamepublicmsgid" type="java.lang.Integer">
+            <column name="gamepublicmsgid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="gamelog" class="game_db.entity.Gamelog" fetch="select">
+            <column name="gameid" not-null="true" />
+        </many-to-one>
+        <property name="sourceuserid" type="int">
+            <column name="sourceuserid" not-null="true" />
+        </property>
+        <property name="msgtime" type="timestamp">
+            <column name="msgtime" length="19" not-null="true" />
+        </property>
+        <property name="msg" type="string">
+            <column name="msg" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

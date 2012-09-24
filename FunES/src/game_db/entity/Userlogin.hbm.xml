@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Userlogin" table="userlogin" catalog="game_db">
+        <id name="userid" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="nickname" type="string">
+            <column name="nickname" length="20" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="20" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="2" not-null="true" />
+        </property>
+        <property name="userbirthday" type="timestamp">
+            <column name="userbirthday" length="19" not-null="true" />
+        </property>
+        <property name="isaccountactive" type="boolean">
+            <column name="isaccountactive" not-null="true" />
+        </property>
+        <property name="siteyononaydurum" type="boolean">
+            <column name="siteyononaydurum" not-null="true" />
+        </property>
+        <property name="activationcode" type="string">
+            <column name="activationcode" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="usercity" type="string">
+            <column name="usercity" length="16" />
+        </property>
+        <property name="isgold" type="boolean">
+            <column name="isgold" not-null="true" />
+        </property>
+        <property name="serverpermlevel" type="int">
+            <column name="serverpermlevel" not-null="true" />
+        </property>
+        <property name="avatarpath" type="string">
+            <column name="avatarpath" length="45" not-null="true" />
+        </property>
+        <property name="ishidden" type="boolean">
+            <column name="ishidden" not-null="true" />
+        </property>
+        <property name="atayanuserid" type="java.lang.Integer">
+            <column name="atayanuserid" />
+        </property>
+        <property name="goldexpirydate" type="timestamp">
+            <column name="goldexpirydate" length="19" />
+        </property>
+        <set name="roomlevelpermsets" inverse="true">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelpermset" />
+        </set>
+        <set name="serverlvlipbans" inverse="true">
+            <key>
+                <column name="bankoyanuserid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Serverlvlipban" />
+        </set>
+        <set name="userprivatemsglogs" inverse="true">
+            <key>
+                <column name="sourceuserid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Userprivatemsglog" />
+        </set>
+        <set name="serverlvlnickbans" inverse="true">
+            <key>
+                <column name="banlanmisnickuserid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Serverlvlnickban" />
+        </set>
+        <set name="scores" inverse="true">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Score" />
+        </set>
+        <set name="usercnnlogs" inverse="true">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Usercnnlog" />
+        </set>
+        <set name="roomlevelbanlogs" inverse="true">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Roomlevelbanlog" />
+        </set>
+        <set name="userbuddydatas" inverse="true">
+            <key>
+                <column name="userid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Userbuddydata" />
+        </set>
+        <set name="gorevhavuzus" inverse="true">
+            <key>
+                <column name="yaratanuserid" not-null="true" />
+            </key>
+            <one-to-many class="game_db.entity.Gorevhavuzu" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/game_db</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">!.Wlu9RrCA</property>
+    <!-- Use the C3P0 connection pool provider -->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
+    <property name="format_sql">true</property>
+    <mapping resource="game_db/entity/Roomlevelipban.hbm.xml"/>
+    <mapping resource="game_db/entity/Roomlevelbanlog.hbm.xml"/>
+    <mapping resource="game_db/entity/Userlogin.hbm.xml"/>
+    <mapping resource="game_db/entity/Score.hbm.xml"/>
+    <mapping resource="game_db/entity/Gamepublicmsglog.hbm.xml"/>
+    <mapping resource="game_db/entity/Dbzone.hbm.xml"/>
+    <mapping resource="game_db/entity/Dbroom.hbm.xml"/>
+    <mapping resource="game_db/entity/Usercnnlog.hbm.xml"/>
+    <mapping resource="game_db/entity/Serverlvlipban.hbm.xml"/>
+    <mapping resource="game_db/entity/Gamelog.hbm.xml"/>
+    <mapping resource="game_db/entity/CiSessions.hbm.xml"/>
+    <mapping resource="game_db/entity/Serverlvlnickban.hbm.xml"/>
+    <mapping resource="game_db/entity/Cafegold.hbm.xml"/>
+    <mapping resource="game_db/entity/Roomlevelpermset.hbm.xml"/>
+    <mapping resource="game_db/entity/Userprivatemsglog.hbm.xml"/>
+    <mapping resource="game_db/entity/Roompublicmsglog.hbm.xml"/>
+    <mapping resource="game_db/entity/Userbuddydata.hbm.xml"/>
+    <mapping resource="game_db/entity/Gorevhavuzu.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

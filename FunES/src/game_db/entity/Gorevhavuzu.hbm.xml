@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-Sep-2012 14:13:49 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="game_db.entity.Gorevhavuzu" table="gorevhavuzu" catalog="game_db">
+        <id name="gorevid" type="java.lang.Integer">
+            <column name="gorevid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userlogin" class="game_db.entity.Userlogin" fetch="select">
+            <column name="yaratanuserid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="dbroom" class="game_db.entity.Dbroom" fetch="select">
+            <column name="roomid" />
+        </many-to-one>
+        <many-to-one name="dbzone" class="game_db.entity.Dbzone" fetch="select">
+            <column name="zoneid" not-null="true" />
+        </many-to-one>
+        <property name="gorevtip" type="string">
+            <column name="gorevtip" length="6" not-null="true" />
+        </property>
+        <property name="gorevaciklama" type="string">
+            <column name="gorevaciklama" not-null="true" />
+        </property>
+        <property name="gerekenminlevel" type="int">
+            <column name="gerekenminlevel" not-null="true" />
+        </property>
+        <property name="talepzaman" type="timestamp">
+            <column name="talepzaman" length="19" not-null="true" />
+        </property>
+        <property name="gorevdurumu" type="string">
+            <column name="gorevdurumu" length="10" not-null="true" />
+        </property>
+        <property name="gorevkabulzamani" type="timestamp">
+            <column name="gorevkabulzamani" length="19" />
+        </property>
+        <property name="gorevialanuserid" type="java.lang.Integer">
+            <column name="gorevialanuserid" />
+        </property>
+        <property name="gorevdurumaciklama" type="string">
+            <column name="gorevdurumaciklama" />
+        </property>
+        <property name="gorevsonuczamani" type="timestamp">
+            <column name="gorevsonuczamani" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
